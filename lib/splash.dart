@@ -3,6 +3,7 @@ import 'package:wedding_app/Login_register.dart';
 
 class Splash extends StatefulWidget {
   static const String id = 'Splash';
+
   const Splash({Key? key}) : super(key: key);
 
   @override
@@ -15,21 +16,31 @@ class _SplashState extends State<Splash> {
     _navigatetoLoginRegister();
     super.initState();
   }
-  _navigatetoLoginRegister() async{
-    await Future.delayed(const Duration(milliseconds: 5000),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const LoginRegister()));
+
+  _navigatetoLoginRegister() async {
+    await Future.delayed(const Duration(milliseconds: 5000), () {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const LoginRegister()));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Image.asset(
-          "images/splash.png",fit: BoxFit.fitHeight,
-        ),
+      body: Stack(
+        children: [
+          Positioned(
+            top: 0,
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset(
+                "images/splash.png",
+                fit: BoxFit.fitHeight,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

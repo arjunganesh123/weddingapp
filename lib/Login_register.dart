@@ -53,7 +53,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                                      },
                                        child: Container(
                                          width: MediaQuery.of(context).size.width*0.6,
-                                         height: MediaQuery.of(context).size.height*0.08,
+                                         height: MediaQuery.of(context).size.height*0.07,
                                          decoration: BoxDecoration(
                                            color: Color(0xFF4F3C5A),
                                            borderRadius: BorderRadius.circular(20.0),
@@ -73,7 +73,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                                     onPressed: (){},
                                       child: Container(
                                         width: MediaQuery.of(context).size.width*0.6,
-                                        height: MediaQuery.of(context).size.height*0.08,
+                                        height: MediaQuery.of(context).size.height*0.07,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(20.0),
                                           color: Colors.white,

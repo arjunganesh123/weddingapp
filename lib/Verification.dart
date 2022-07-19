@@ -39,7 +39,8 @@ class _VerificationState extends State<Verification> {
             ),
           ),
           Positioned(
-            bottom: 2,
+            bottom: 140,
+            left: 70,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
