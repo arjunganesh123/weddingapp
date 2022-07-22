@@ -14,7 +14,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool obsuretext = true;
-
+  bool appear=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -177,7 +177,11 @@ class _LoginPageState extends State<LoginPage> {
                             minimumSize: Size.zero,
                             padding: EdgeInsets.zero,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              appear=true;
+                            });
+                          },
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.45,
                             height: MediaQuery.of(context).size.height * 0.06,
@@ -197,64 +201,76 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    Center(
-                        child: Text(
-                      'OTP has been sent to your Phone no. +91 9875643234',
-                      style: TextStyle(color: Colors.black, fontSize: 10),
-                    )),
-                    Padding(
-                        padding: EdgeInsets.only(top: 25, bottom: 10),
-                        child: Center(
-                            child: Text(
-                          'Enter OTP',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
-                        ))),
-                    Padding(
-                        padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
-                        child: PinCodeTextField(
-                          keyboardType: TextInputType.number,
-                          pastedTextStyle: TextStyle(color: Colors.black),
-                          blinkWhenObscuring: true,
-                          appContext: context,
-                          length: 4,
-                          cursorWidth: 1.0,
-                          pinTheme: PinTheme(
-                              activeColor: Color(0xFFC196DD),
-                              inactiveColor: const Color(0xFFC196DD),
-                              borderWidth: 3.0),
-                          cursorColor: Color(0xFFC196DD),
-                          obscureText: true,
-                          obscuringCharacter: '*',
-                          onChanged: (String value) {},
-                        )),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20),
+                    Visibility(
+                      visible: appear,
                       child: Center(
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            elevation: 10,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40.0),
+                          child: Text(
+                        'OTP has been sent to your Phone no. +91 9875643234',
+                        style: TextStyle(color: Colors.black, fontSize: 10),
+                      )),
+                    ),
+                    Visibility(
+                      visible: appear,
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 25, bottom: 10),
+                          child: Center(
+                              child: Text(
+                            'Enter OTP',
+                            style: TextStyle(color: Colors.black, fontSize: 20),
+                          ))),
+                    ),
+                    Visibility(
+                      visible: appear,
+                      child: Padding(
+                          padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+                          child: PinCodeTextField(
+                            keyboardType: TextInputType.number,
+                            pastedTextStyle: TextStyle(color: Colors.black),
+                            blinkWhenObscuring: true,
+                            appContext: context,
+                            length: 4,
+                            cursorWidth: 1.0,
+                            pinTheme: PinTheme(
+                                activeColor: Color(0xFFC196DD),
+                                inactiveColor: const Color(0xFFC196DD),
+                                borderWidth: 3.0),
+                            cursorColor: Color(0xFFC196DD),
+                            obscureText: true,
+                            obscuringCharacter: '*',
+                            onChanged: (String value) {},
+                          )),
+                    ),
+                    Visibility(
+                      visible: appear,
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 20),
+                        child: Center(
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              elevation: 10,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40.0),
+                              ),
+                              minimumSize: Size.zero,
+                              padding: EdgeInsets.zero,
                             ),
-                            minimumSize: Size.zero,
-                            padding: EdgeInsets.zero,
-                          ),
-                          onPressed: () {},
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.32,
-                            height: MediaQuery.of(context).size.height * 0.05,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40.0),
-                              color: Color(0xFFC196DD),
+                            onPressed: () {},
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.32,
+                              height: MediaQuery.of(context).size.height * 0.05,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(40.0),
+                                color: Color(0xFFC196DD),
+                              ),
+                              child: Center(
+                                  child: Text(
+                                'RESEND OTP',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              )),
                             ),
-                            child: Center(
-                                child: Text(
-                              'RESEND OTP',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                            )),
                           ),
                         ),
                       ),

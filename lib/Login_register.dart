@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wedding_app/LoginPage.dart';
+import 'package:wedding_app/vendorprof.dart';
 
 class LoginRegister extends StatefulWidget {
   static const String id="LoginRegister";
@@ -70,7 +71,9 @@ class _LoginRegisterState extends State<LoginRegister> {
                                    minimumSize: Size.zero,
                                    padding: EdgeInsets.zero,
                                  ),
-                                    onPressed: (){},
+                                    onPressed: (){
+                                   Navigator.pushNamed(context, VendorProf.id);
+                                    },
                                       child: Container(
                                         width: MediaQuery.of(context).size.width*0.6,
                                         height: MediaQuery.of(context).size.height*0.07,

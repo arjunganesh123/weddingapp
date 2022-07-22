@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wedding_app/HomePage.dart';
 
 class Verification extends StatefulWidget {
   static const String id='Verification';
@@ -50,7 +51,7 @@ class _VerificationState extends State<Verification> {
                 padding: EdgeInsets.zero,
               ),
               onPressed: (){
-
+                Navigator.pushNamed(context, HomePage.id);
               },
               child: Container(
                 width: MediaQuery.of(context).size.width*0.6,
