@@ -6,7 +6,13 @@ import 'package:wedding_app/Login_register.dart';
 import 'package:wedding_app/PaymentScreen.dart';
 import 'package:wedding_app/Vendorreg.dart';
 import 'package:wedding_app/Verification.dart';
+import 'package:wedding_app/aboutus.dart';
+import 'package:wedding_app/customerpolicy.dart';
+import 'package:wedding_app/feedback.dart';
+import 'package:wedding_app/marketingpolicy.dart';
+import 'package:wedding_app/privacypolicy.dart';
 import 'package:wedding_app/splash.dart';
+import 'package:wedding_app/termsandcondition.dart';
 import 'package:wedding_app/vendorprof.dart';
 
 import 'Payment1.dart';
@@ -20,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       home: const Splash(),
+       home: const HomePage(),
       routes: {
          LoginRegister.id:(context)=>const LoginRegister(),
          LoginPage.id:(context)=>const LoginPage(),
@@ -31,6 +37,12 @@ class MyApp extends StatelessWidget {
         VendorProf.id:(context)=>const VendorProf(),
         HomePage.id:(context)=>const HomePage(),
         Help.id:(context)=>const Help(),
+        Feedbackk.id:(context)=>const Feedbackk(),
+        Aboutus.id:(context)=>const Aboutus(),
+        MarketPolicy.id:(context)=>const MarketPolicy(),
+        CustomerPolicy.id:(context)=>const CustomerPolicy(),
+        Privacypolicy.id:(context)=>const Privacypolicy(),
+        Termsandcondition.id:(context)=>const Termsandcondition(),
       },
     );
   }

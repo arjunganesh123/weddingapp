@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Image.asset('images/Menu.png')),
+                            child: Image.asset('images/Menu.png'),),
                         Padding(
                           padding: EdgeInsets.only(left: 10,right: 90),
                           child: Column(
