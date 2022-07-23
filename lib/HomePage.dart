@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wedding_app/Help.dart';
+import 'package:wedding_app/customdrawer.dart';
 
 class HomePage extends StatefulWidget {
   static const String id="HomePage";
@@ -12,9 +13,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selpage=1;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawer(),
+      key: scaffoldKey,
       body: Stack(
         children: [
           Positioned(
@@ -44,7 +48,13 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Image.asset('images/Menu.png'),),
+                            child: IconButton(
+                                icon: Image.asset('images/Menu.png'),
+                              onPressed: () {
+                                  scaffoldKey.currentState?.openDrawer();
+                              },
+                            ),
+                        ),
                         Padding(
                           padding: EdgeInsets.only(left: 10,right: 90),
                           child: Column(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wedding_app/customdrawer.dart';
 
 class Aboutus extends StatefulWidget {
   static const String id="Aboutus";
@@ -10,12 +11,15 @@ class Aboutus extends StatefulWidget {
 }
 
 class _AboutusState extends State<Aboutus> {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   String line1='...................................................................................';
   String line2='.......................................................';
   String line3='..................................';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+      drawer: CustomDrawer(),
       body: Stack(
         children: [
           Positioned(
@@ -36,7 +40,7 @@ class _AboutusState extends State<Aboutus> {
               elevation: 50,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height*0.09,
+                height: MediaQuery.of(context).size.height*0.11,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -45,7 +49,7 @@ class _AboutusState extends State<Aboutus> {
                       children: [
                         Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Image.asset('images/Menu.png')),
+                            child: IconButton(icon: Image.asset('images/Menu.png'), onPressed: () { scaffoldKey.currentState?.openDrawer(); },)),
                         Padding(
                           padding: EdgeInsets.only(left: 20,right: 90),
                           child: Text('ABOUT US',style: TextStyle(color: Color.fromRGBO(51, 0, 81, 1),fontSize: 20),),
@@ -58,7 +62,7 @@ class _AboutusState extends State<Aboutus> {
             ),
           ),
           Positioned(
-            top: MediaQuery.of(context).size.height*0.15,
+            top: MediaQuery.of(context).size.height*0.17,
             child: SizedBox(
               height: MediaQuery.of(context).size.height*0.83,
               width: MediaQuery.of(context).size.width,

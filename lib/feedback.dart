@@ -1,5 +1,6 @@
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:wedding_app/customdrawer.dart';
 
 class Feedbackk extends StatefulWidget {
   static const String id="Feedback";
@@ -10,9 +11,12 @@ class Feedbackk extends StatefulWidget {
 }
 
 class _FeedbackkState extends State<Feedbackk> {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+      drawer: CustomDrawer(),
       body: Stack(
         children: [
           Positioned(
@@ -33,7 +37,7 @@ class _FeedbackkState extends State<Feedbackk> {
               elevation: 50,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height*0.09,
+                height: MediaQuery.of(context).size.height*0.11,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -42,7 +46,7 @@ class _FeedbackkState extends State<Feedbackk> {
                       children: [
                         Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Image.asset('images/Menu.png')),
+                            child: IconButton(icon: Image.asset('images/Menu.png'), onPressed: () { scaffoldKey.currentState?.openDrawer(); },),),
                         Padding(
                           padding: EdgeInsets.only(left: 20,right: 90),
                           child: Text('FEEDBACK',style: TextStyle(color: Color.fromRGBO(51, 0, 81, 1),fontSize: 20),),
@@ -55,7 +59,7 @@ class _FeedbackkState extends State<Feedbackk> {
             ),
           ),
           Positioned(
-            top: MediaQuery.of(context).size.height*0.15,
+            top: MediaQuery.of(context).size.height*0.17,
             child: SizedBox(
               height: MediaQuery.of(context).size.height*0.83,
               width: MediaQuery.of(context).size.width,
