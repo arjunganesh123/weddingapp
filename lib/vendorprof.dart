@@ -63,9 +63,11 @@ class _VendorProfState extends State<VendorProf> {
                 height: MediaQuery.of(context).size.height * 0.7,
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 5),
-                  child: Scrollbar(
+                  child: RawScrollbar(
+                    radius: Radius.circular(20.0),
+                    thumbColor: Colors.grey,
                     thumbVisibility: true,
-                    thickness: 5,
+                    thickness: 7,
                     child: ListView.builder(
                       padding: EdgeInsets.all(10),
                           itemBuilder: (context,counter){
