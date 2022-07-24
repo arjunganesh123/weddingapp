@@ -56,13 +56,13 @@ class _LoginPageState extends State<LoginPage> {
               elevation: 50,
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.85,
-                height: MediaQuery.of(context).size.height * 0.65,
+                height: MediaQuery.of(context).size.height * 0.68,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: EdgeInsets.only(
-                          left: 40, top: 30, right: 30, bottom: 10),
+                          left: 30, top: 30, right: 30, bottom: 10),
                       child: TextField(
                         enableSuggestions: false,
                         autocorrect: false,
@@ -74,14 +74,14 @@ class _LoginPageState extends State<LoginPage> {
                         decoration: const InputDecoration(
                           labelText: 'Mobile no./Email',
                           labelStyle:
-                              TextStyle(color: Colors.black, fontSize: 20),
+                              TextStyle(color: Colors.black, fontSize: 20,),
                           isDense: true,
                           contentPadding: EdgeInsets.only(bottom: 5),
                           hintText: 'Enter Mobile Number or Email',
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           hintStyle: TextStyle(
-                              color: Color.fromRGBO(79, 60, 90, 0.6),
-                              fontSize: 15),
+                              color: Color.fromRGBO(199, 168, 224, 1),
+                              fontSize: 15,fontFamily: "Poppins"),
                           enabledBorder: UnderlineInputBorder(
                             borderSide:
                                 BorderSide(color: Colors.black, width: 1),
@@ -115,14 +115,21 @@ class _LoginPageState extends State<LoginPage> {
                           suffixIcon: Padding(
                             padding: EdgeInsets.only(top: 15),
                             child: IconButton(
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.zero,
                               icon: Icon(
                                 Icons.remove_red_eye,
                                 color: Colors.black,
-                                size: 30,
+                                size: 25,
                               ),
                               onPressed: () {
                                 setState(() {
-                                  obsuretext=false;
+                                  if(obsuretext==true){
+                                    obsuretext=false;
+                                  }
+                                  else{
+                                    obsuretext=true;
+                                  }
                                 });
                               },
                             ),
@@ -132,7 +139,8 @@ class _LoginPageState extends State<LoginPage> {
                           hintText: 'Enter Password',
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           hintStyle: TextStyle(
-                              color: Color.fromRGBO(79, 60, 90, 0.6),
+                              color: Color.fromRGBO(199, 168, 224, 1),
+                              fontFamily: "Poppins",
                               fontSize: 15),
                           enabledBorder: UnderlineInputBorder(
                             borderSide:
@@ -243,7 +251,7 @@ class _LoginPageState extends State<LoginPage> {
                     Visibility(
                       visible: appear,
                       child: Padding(
-                        padding: EdgeInsets.only(top: 20),
+                        padding: EdgeInsets.only(top: 20,bottom: 20),
                         child: Center(
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(

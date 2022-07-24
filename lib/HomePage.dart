@@ -173,7 +173,7 @@ class _SelectwidgetState extends State<Selectwidget> {
                 elevation: 50,
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width*0.92,
-                  height: MediaQuery.of(context).size.height*0.5,
+                  height: MediaQuery.of(context).size.height*0.53,
                   child: Column(
                     children: [
                       SizedBox(height: 10,),
@@ -212,7 +212,7 @@ class _SelectwidgetState extends State<Selectwidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 20,right: 10),
+                        padding: EdgeInsets.only(left: 20,right: 10,bottom: 10),
                         child: Row(
                           children: [
                             Text('See All Plans',style: TextStyle(color: Color.fromRGBO(51, 0, 81, 1),fontWeight: FontWeight.bold,fontSize: 18),),
@@ -643,7 +643,8 @@ class _SelectwidgetState extends State<Selectwidget> {
                       ),
                     ),
                   ),
-                  Center(
+                  Padding(
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.17),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(

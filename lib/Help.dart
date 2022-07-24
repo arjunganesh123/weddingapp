@@ -51,7 +51,7 @@ class _HelpState extends State<Help> {
             top: MediaQuery.of(context).size.height*0.17,
               left: 10,
               child: SizedBox(
-                height: MediaQuery.of(context).size.height*0.6,
+                height: MediaQuery.of(context).size.height*0.51,
                 width: MediaQuery.of(context).size.width*0.95,
                 child: Card(
                   shape: RoundedRectangleBorder(
@@ -174,15 +174,18 @@ class _HelpState extends State<Help> {
                               color: Colors.black54,
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Other",style: TextStyle(color: Colors.black,fontSize: 18),),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Icon(Icons.arrow_forward_ios,color: Colors.black,size: 30,),
-                              )
-                            ],
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Other",style: TextStyle(color: Colors.black,fontSize: 18),),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Icon(Icons.arrow_forward_ios,color: Colors.black,size: 30,),
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),

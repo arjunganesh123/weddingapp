@@ -59,7 +59,7 @@ class _VendorregState extends State<Vendorreg> {
               elevation: 50,
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.85,
-                height: MediaQuery.of(context).size.height * 0.65,
+                height: MediaQuery.of(context).size.height * 0.73,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -79,11 +79,11 @@ class _VendorregState extends State<Vendorreg> {
                           labelStyle:
                           TextStyle(color: Colors.black, fontSize: 20),
                           isDense: true,
-                          contentPadding: EdgeInsets.only(bottom: 5),
+                          contentPadding: EdgeInsets.only(bottom: 2),
                           hintText: 'ENTER YOUR NAME',
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           hintStyle: TextStyle(
-                              color: Color.fromRGBO(200, 169, 222, 1),
+                              color: Color.fromRGBO(200, 169, 222, 1),fontFamily: "Poppins",
                               fontSize: 15),
                           enabledBorder: UnderlineInputBorder(
                             borderSide:
@@ -115,11 +115,11 @@ class _VendorregState extends State<Vendorreg> {
                           labelStyle:
                           TextStyle(color: Colors.black, fontSize: 20),
                           isDense: true,
-                          contentPadding: EdgeInsets.only(bottom: 5),
+                          contentPadding: EdgeInsets.only(bottom: 2),
                           hintText: 'Enter Your Business Name',
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           hintStyle: TextStyle(
-                              color: Color.fromRGBO(200, 169, 222, 1),
+                              color: Color.fromRGBO(200, 169, 222, 1),fontFamily: "Poppins",
                               fontSize: 15),
                           enabledBorder: UnderlineInputBorder(
                             borderSide:
@@ -151,11 +151,11 @@ class _VendorregState extends State<Vendorreg> {
                           labelStyle:
                           TextStyle(color: Colors.black, fontSize: 20),
                           isDense: true,
-                          contentPadding: EdgeInsets.only(bottom: 5),
+                          contentPadding: EdgeInsets.only(bottom: 2),
                           hintText: 'Enter Your Login Email Address',
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           hintStyle: TextStyle(
-                              color: Color.fromRGBO(200, 169, 222, 1),
+                              color: Color.fromRGBO(200, 169, 222, 1),fontFamily: "Poppins",
                               fontSize: 15),
                           enabledBorder: UnderlineInputBorder(
                             borderSide:
@@ -188,26 +188,33 @@ class _VendorregState extends State<Vendorreg> {
                           labelStyle:
                           TextStyle(color: Colors.black, fontSize: 20),
                           suffixIcon: Padding(
-                            padding: EdgeInsets.only(top: 15),
+                            padding: EdgeInsets.only(top: 10),
                             child: IconButton(
+                              padding: EdgeInsets.zero,
+                              alignment: Alignment.bottomCenter,
                               icon: Icon(
                                 Icons.remove_red_eye,
                                 color: Colors.black,
-                                size: 30,
+                                size: 25,
                               ),
                               onPressed: () {
                                 setState(() {
-                                  obsuretext=false;
+                                  if(obsuretext==false){
+                                    obsuretext=true;
+                                  }
+                                  else{
+                                    obsuretext=false;
+                                  }
                                 });
                               },
                             ),
                           ),
                           isDense: true,
-                          contentPadding: EdgeInsets.only(top: 25),
+                          contentPadding: EdgeInsets.only(top: 15),
                           hintText: 'Enter Password',
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           hintStyle: TextStyle(
-                              color: Color.fromRGBO(200, 169, 222, 1),
+                              color: Color.fromRGBO(200, 169, 222, 1),fontFamily: "Poppins",
                               fontSize: 15),
                           enabledBorder: UnderlineInputBorder(
                             borderSide:
@@ -240,7 +247,7 @@ class _VendorregState extends State<Vendorreg> {
                           labelStyle:
                           TextStyle(color: Colors.black, fontSize: 20),
                           suffixIcon: Padding(
-                            padding: EdgeInsets.only(top: 20),
+                            padding: EdgeInsets.only(top: 28),
                             child:Icon(
                                 Icons.keyboard_arrow_down,
                                 color: Colors.black,
@@ -248,12 +255,12 @@ class _VendorregState extends State<Vendorreg> {
                               ),
                           ),
                           isDense: true,
-                          contentPadding: EdgeInsets.only(top: 25),
+                          contentPadding: EdgeInsets.only(top: 15),
                           hintText: 'Select City',
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           hintStyle: TextStyle(
                               color: Color.fromRGBO(200, 169, 222, 1),
-                              fontSize: 15),
+                              fontSize: 16),
                           enabledBorder: UnderlineInputBorder(
                             borderSide:
                             BorderSide(color: Colors.black, width: 1),
@@ -270,44 +277,44 @@ class _VendorregState extends State<Vendorreg> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 40, right: 30, bottom: 15),
-                      child: TextField(
-                        enableSuggestions: false,
-                        autocorrect: false,
-                        cursorColor: Colors.black,
-                        cursorHeight: 20,
-                        obscureText: obsuretext,
-                        autofocus: true,
-                        keyboardType: TextInputType.emailAddress,
-                        onChanged: (value) {},
-                        decoration: InputDecoration(
-                          labelText: 'Mobile Number',
-                          labelStyle:
-                          TextStyle(color: Colors.black, fontSize: 20),
-                          isDense: true,
-                          contentPadding: EdgeInsets.only(top: 25),
-                          hintText: 'Enter Your Mobile',
-                          floatingLabelBehavior: FloatingLabelBehavior.always,
-                          hintStyle: TextStyle(
-                              color: Color.fromRGBO(200, 169, 222, 1),
-                              fontSize: 15),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide:
-                            BorderSide(color: Colors.black, width: 1),
+                        padding: EdgeInsets.only(left: 40,top: 15),
+                        child: Text('Mobile Number',style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: "Poppins"),),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 40,right: 30),
+                      child: Row(
+                        children: [
+                          Text('91+  ',style: TextStyle(color: Colors.black,fontSize: 15),),
+                          Expanded(
+                            child: TextField(
+                              enableSuggestions: false,
+                              autocorrect: false,
+                              cursorColor: Colors.black,
+                              cursorHeight: 20,
+                              autofocus: true,
+                              keyboardType: TextInputType.phone,
+                              onChanged: (value) {},
+                              decoration: InputDecoration.collapsed(
+                                hintText: 'Enter Your Mobile',
+                                floatingLabelBehavior: FloatingLabelBehavior.always,
+                                hintStyle: TextStyle(
+                                    color: Color.fromRGBO(200, 169, 222, 1),
+                                    fontSize: 15),
+                              ),
+                            ),
                           ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                            BorderSide(color: Colors.black, width: 1),
-                          ),
-                          border: UnderlineInputBorder(
-                            borderSide:
-                            BorderSide(color: Colors.black, width: 1),
-                          ),
-                        ),
+                        ],
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 40, right: 30, bottom: 10),
+                      padding: EdgeInsets.only(left: 40, right: 30, bottom: 10,top: 2),
+                      child: Container(
+                        height: 1,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 40, right: 30, bottom: 10,top: 5),
                       child: TextField(
                         enableSuggestions: false,
                         autocorrect: false,
@@ -318,14 +325,13 @@ class _VendorregState extends State<Vendorreg> {
                         onChanged: (value) {},
                         decoration: const InputDecoration(
                           labelText: 'Business Location/Address',
-                          labelStyle:
-                          TextStyle(color: Colors.black, fontSize: 20),
+                          labelStyle: TextStyle(color: Colors.black, fontSize: 20,fontFamily: "Poppins"),
                           isDense: true,
                           contentPadding: EdgeInsets.only(bottom: 5),
                           hintText: 'Enter House No./Name,Lname',
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           hintStyle: TextStyle(
-                              color: Color.fromRGBO(200, 169, 222, 1),
+                              color: Color.fromRGBO(200, 169, 222, 1),fontFamily: "Poppins",
                               fontSize: 15),
                           enabledBorder: UnderlineInputBorder(
                             borderSide:
@@ -358,7 +364,7 @@ class _VendorregState extends State<Vendorreg> {
                           hintText: 'LandMark,Locality',
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           hintStyle: TextStyle(
-                              color: Color.fromRGBO(200, 169, 222, 1),
+                              color: Color.fromRGBO(200, 169, 222, 1),fontFamily: "Poppins",
                               fontSize: 15),
                           enabledBorder: UnderlineInputBorder(
                             borderSide:
@@ -374,6 +380,14 @@ class _VendorregState extends State<Vendorreg> {
                           ),
                         ),
                       ),
+                    ),
+                    Padding(
+                        padding: EdgeInsets.only(left: 40,top: 15),
+                        child: Text("By signing up,you agree to VendorApp's",style: TextStyle(color: Colors.black,fontSize: 11,fontFamily: "Poppins"),),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 40,bottom: 5),
+                      child: Text("Terms & Conditions",style: TextStyle(color: Colors.blueAccent,fontSize: 13,fontFamily: "Poppins"),),
                     ),
                   ],
                 ),

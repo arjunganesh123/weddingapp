@@ -61,46 +61,64 @@ class _VendorProfState extends State<VendorProf> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.85,
                 height: MediaQuery.of(context).size.height * 0.7,
-                child: ListView.builder(
-                  padding: EdgeInsets.all(10),
-                      itemBuilder: (context,counter){
-                        return Padding(
-                          padding: EdgeInsets.only(left: 12,bottom: 15),
-                          child: Container(
-                            height: 20,
-                            width: MediaQuery.of(context).size.width,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                ElevatedButton(
-                                  onPressed: (){
-                                    setState(() {
-                                      fillcolor[counter]=Color.fromRGBO(156, 85, 195, 1);
-                                    });
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    minimumSize: Size.zero,
-                                    padding: EdgeInsets.zero,
-                                    primary: Colors.white,
-                                    shape: const CircleBorder(
-                                      side: BorderSide(color: Color.fromRGBO(200, 169, 222, 1),),
-                                    ),
-                                  ),
-                                  child:CircleAvatar(
-                                    radius: 9.0,
-                                    backgroundColor: Colors.white,
-                                    child: CircleAvatar(
-                                      radius: 5,backgroundColor: fillcolor[counter],
-                                    ),
-                                  ),),
-                                Text(prof[counter],style: TextStyle(color: Color.fromRGBO(156, 85, 195, 1),fontWeight: FontWeight.w500,fontSize: 17,letterSpacing: 0.5),),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                  itemCount: prof.length,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 5),
+                  child: Scrollbar(
+                    thumbVisibility: true,
+                    thickness: 5,
+                    child: ListView.builder(
+                      padding: EdgeInsets.all(10),
+                          itemBuilder: (context,counter){
+                            return Padding(
+                              padding: EdgeInsets.only(left: 12,bottom: 15),
+                              child: Container(
+                                height: 20,
+                                width: MediaQuery.of(context).size.width,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: (){
+                                        setState(() {
+                                          fillcolor[counter]=Color.fromRGBO(156, 85, 195, 1);
+                                        });
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        minimumSize: Size.zero,
+                                        padding: EdgeInsets.zero,
+                                        primary: Colors.white,
+                                        shape: const CircleBorder(
+                                          side: BorderSide(color: Color.fromRGBO(200, 169, 222, 1),),
+                                        ),
+                                      ),
+                                      child:CircleAvatar(
+                                        radius: 9.0,
+                                        backgroundColor: Colors.white,
+                                        child: CircleAvatar(
+                                          radius: 5,backgroundColor: fillcolor[counter],
+                                        ),
+                                      ),),
+                                    TextButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            fillcolor[counter]=Color.fromRGBO(156, 85, 195, 1);
+                                          });
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          minimumSize: Size.zero,
+                                          padding: EdgeInsets.zero,
+                                          primary: Colors.white,
+                                        ),
+                                        child: Text(prof[counter],style: TextStyle(color: Color.fromRGBO(156, 85, 195, 1),fontWeight: FontWeight.w500,fontSize: 17,letterSpacing: 0.5),)),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                      itemCount: prof.length,
+                      ),
                   ),
+                ),
                 ),
               ),
           ),
