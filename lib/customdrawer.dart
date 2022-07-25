@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wedding_app/HomePage.dart';
 import 'package:wedding_app/Login_register.dart';
+import 'package:wedding_app/PastBookings.dart';
 import 'package:wedding_app/aboutus.dart';
 import 'package:wedding_app/customerpolicy.dart';
 import 'package:wedding_app/feedback.dart';
@@ -40,28 +42,28 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
             ListTile(
               onTap: (){
-
+                Navigator.pushNamed(context, HomePage.id);
+              },
+              horizontalTitleGap: 8,
+              minVerticalPadding: 0,
+              minLeadingWidth: 0,
+              dense: true,
+              visualDensity: VisualDensity(horizontal: 0,vertical: -4),
+              title: Text("HOME",style: TextStyle(color: Color.fromRGBO(135, 56, 182, 1),fontSize: 18,fontWeight: FontWeight.w500,fontFamily: "Poppins"),),
+              leading: Image.asset('images/Home.png',color: Color.fromRGBO(135, 56, 182, 1),),
+            ),
+            SizedBox(height: 10,),
+            ListTile(
+              onTap: (){
+                Navigator.pushNamed(context, PastBookings.id);
               },
               horizontalTitleGap: 5,
               minVerticalPadding: 0,
               minLeadingWidth: 0,
               dense: true,
               visualDensity: VisualDensity(horizontal: 0,vertical: -4),
-              title: Text("Past Bookings",style: TextStyle(color: Color.fromRGBO(135, 56, 182, 1),fontSize: 18,fontWeight: FontWeight.w500,fontFamily: "Poppins"),),
+              title: Text("PAST BOOKINGS",style: TextStyle(color: Color.fromRGBO(135, 56, 182, 1),fontSize: 18,fontWeight: FontWeight.w500,fontFamily: "Poppins"),),
               leading: Image.asset('images/righttik.png'),
-            ),
-            SizedBox(height: 10,),
-            ListTile(
-              onTap: (){
-
-              },
-              horizontalTitleGap: 15,
-              minVerticalPadding: 0,
-              minLeadingWidth: 0,
-              dense: true,
-              visualDensity: VisualDensity(horizontal: 0,vertical: -4),
-              title: Text("Cancelled Bookings",style: TextStyle(color: Color.fromRGBO(135, 56, 182, 1),fontSize: 18,fontWeight: FontWeight.w500,fontFamily: "Poppins"),),
-              leading: Image.asset('images/cross.png'),
             ),
             SizedBox(height: 10,),
             ListTile(

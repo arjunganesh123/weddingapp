@@ -3,6 +3,7 @@ import 'package:wedding_app/Help.dart';
 import 'package:wedding_app/HomePage.dart';
 import 'package:wedding_app/LoginPage.dart';
 import 'package:wedding_app/Login_register.dart';
+import 'package:wedding_app/PastBookings.dart';
 import 'package:wedding_app/PaymentScreen.dart';
 import 'package:wedding_app/Vendorreg.dart';
 import 'package:wedding_app/Verification.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       home: const Splash(),
+       home: const PastBookings(),
       routes: {
          LoginRegister.id:(context)=>const LoginRegister(),
          LoginPage.id:(context)=>const LoginPage(),
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         CustomerPolicy.id:(context)=>const CustomerPolicy(),
         Privacypolicy.id:(context)=>const Privacypolicy(),
         Termsandcondition.id:(context)=>const Termsandcondition(),
+        PastBookings.id:(context)=>const PastBookings(),
       },
     );
   }

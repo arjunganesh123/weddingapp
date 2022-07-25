@@ -11,7 +11,7 @@ class VendorProf extends StatefulWidget {
 }
 
 class _VendorProfState extends State<VendorProf> {
-  List<String> prof=<String>["Bridal Designer","Bridal Makeup Artist","Choreographer","DJ","Honeymoon","Mehendi Artist","Wedding Caterer","Wedding Car","Wedding Decorator","Wedding Entertainment","Wedding Gifting","Wedding Invitations","Wedding Jewellery","Wedding Pandit","Wedding Photographer","Wedding Planner","Wedding Venue","Wedding Videographer"];
+  List<String> prof=<String>["Bridal Designer","Bridal Makeup Artist","Choreographer","DJ           ","Honeymoon","Mehendi Artist","Wedding Caterer","Wedding Car","Wedding Decorator","Wedding Entertainment","Wedding Gifting","Wedding Invitations","Wedding Jewellery","Wedding Pandit","Wedding Photographer","Wedding Planner","Wedding Venue","Wedding Videographer"];
   List<Color> fillcolor=<Color>[Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1),Color.fromRGBO(255, 255, 255, 1)];
   @override
   Widget build(BuildContext context) {

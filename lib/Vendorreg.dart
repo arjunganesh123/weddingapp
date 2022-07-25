@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wedding_app/Payment1.dart';
+import 'package:wedding_app/termsandcondition.dart';
 
 class Vendorreg extends StatefulWidget {
   static const String id='Vendorreg';
@@ -387,7 +388,8 @@ class _VendorregState extends State<Vendorreg> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 40,bottom: 5),
-                      child: Text("Terms & Conditions",style: TextStyle(color: Colors.blueAccent,fontSize: 13,fontFamily: "Poppins"),),
+                      child: TextButton(onPressed: () { Navigator.pushNamed(context, Termsandcondition.id); },
+                      child: Text("Terms & Conditions",style: TextStyle(color: Colors.blueAccent,fontSize: 13,fontFamily: "Poppins"),)),
                     ),
                   ],
                 ),
