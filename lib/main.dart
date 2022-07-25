@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wedding_app/Help.dart';
 import 'package:wedding_app/HomePage.dart';
 import 'package:wedding_app/LoginPage.dart';
@@ -18,7 +20,12 @@ import 'package:wedding_app/vendorprof.dart';
 
 import 'Payment1.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
+  );
   runApp(const MyApp());
 }
 
@@ -27,7 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       home: const PastBookings(),
+       home: const Splash(),
       routes: {
          LoginRegister.id:(context)=>const LoginRegister(),
          LoginPage.id:(context)=>const LoginPage(),

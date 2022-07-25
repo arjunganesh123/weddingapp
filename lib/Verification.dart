@@ -51,7 +51,7 @@ class _VerificationState extends State<Verification> {
                 padding: EdgeInsets.zero,
               ),
               onPressed: (){
-                Navigator.pushNamed(context, HomePage.id);
+                Navigator.pushNamedAndRemoveUntil(context, HomePage.id, (Route<dynamic> route) => false);
               },
               child: Container(
                 width: MediaQuery.of(context).size.width*0.6,

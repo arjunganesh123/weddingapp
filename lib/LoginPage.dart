@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:wedding_app/Verification.dart';
 
@@ -13,6 +14,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  late String sms;
+  late String _verificationCode;
+  late String phno='';
   bool obsuretext = true;
   bool appear=false;
   @override
@@ -70,7 +74,9 @@ class _LoginPageState extends State<LoginPage> {
                         cursorHeight: 20,
                         autofocus: true,
                         keyboardType: TextInputType.emailAddress,
-                        onChanged: (value) {},
+                        onChanged: (value) {
+                            phno=value;
+                        },
                         decoration: const InputDecoration(
                           labelText: 'Mobile no./Email',
                           labelStyle:
@@ -187,7 +193,22 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           onPressed: () {
                             setState(() {
-                              appear=true;
+                              if(phno.length<10||phno.length>10){
+                                setState(() {
+                                  Fluttertoast.showToast(
+                                      msg: "Enter Valid Phone No.",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 1,
+                                      backgroundColor: Color.fromRGBO(199, 168, 224, 1),
+                                      textColor: Colors.white,
+                                      fontSize: 16.0);
+                                });
+                              }
+                              else{
+                                appear=true;
+                                _verifyPhone(phno);
+                              }
                             });
                           },
                           child: Container(
@@ -213,7 +234,7 @@ class _LoginPageState extends State<LoginPage> {
                       visible: appear,
                       child: Center(
                           child: Text(
-                        'OTP has been sent to your Phone no. +91 9875643234',
+                        'OTP has been sent to your Phone no. +91 $phno',
                         style: TextStyle(color: Colors.black, fontSize: 10),
                       )),
                     ),
@@ -230,13 +251,13 @@ class _LoginPageState extends State<LoginPage> {
                     Visibility(
                       visible: appear,
                       child: Padding(
-                          padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+                          padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                           child: PinCodeTextField(
                             keyboardType: TextInputType.number,
                             pastedTextStyle: TextStyle(color: Colors.black),
                             blinkWhenObscuring: true,
                             appContext: context,
-                            length: 4,
+                            length: 6,
                             cursorWidth: 1.0,
                             pinTheme: PinTheme(
                                 activeColor: Color(0xFFC196DD),
@@ -245,7 +266,9 @@ class _LoginPageState extends State<LoginPage> {
                             cursorColor: Color(0xFFC196DD),
                             obscureText: true,
                             obscuringCharacter: '*',
-                            onChanged: (String value) {},
+                            onChanged: (String value) {
+                              sms=value;
+                            },
                           )),
                     ),
                     Visibility(
@@ -262,7 +285,23 @@ class _LoginPageState extends State<LoginPage> {
                               minimumSize: Size.zero,
                               padding: EdgeInsets.zero,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              if(phno.length<10||phno.length>10){
+                                setState(() {
+                                  Fluttertoast.showToast(
+                                      msg: "Enter Valid Phone No.",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 1,
+                                      backgroundColor: Color.fromRGBO(199, 168, 224, 1),
+                                      textColor: Colors.white,
+                                      fontSize: 16.0);
+                                });
+                              }
+                              else{
+                                _verifyPhone(phno);
+                              }
+                            },
                             child: Container(
                               width: MediaQuery.of(context).size.width * 0.32,
                               height: MediaQuery.of(context).size.height * 0.05,
@@ -310,8 +349,26 @@ class _LoginPageState extends State<LoginPage> {
                 minimumSize: Size.zero,
                 padding: EdgeInsets.zero,
               ),
-              onPressed: () {
-                Navigator.pushNamed(context, Verification.id);
+              onPressed: () async {
+                try{
+                  await FirebaseAuth.instance.signInWithCredential(PhoneAuthProvider.credential(verificationId: _verificationCode, smsCode: sms)).then((value) async {
+                    if(value.user!=null){
+                      Navigator.pushNamedAndRemoveUntil(context, Verification.id, (Route<dynamic> route) => false);
+                    }
+                  });
+                }
+                catch(e){
+                  setState(() {
+                    Fluttertoast.showToast(
+                        msg: "Enter Valid OTP",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Color.fromRGBO(199, 168, 224, 1),
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  });
+                }
               },
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.6,
@@ -333,6 +390,41 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ],
       ),
+    );
+  }
+  _verifyPhone(String phno) async{
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: '+91$phno',
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        try{
+          await FirebaseAuth.instance.signInWithCredential(credential).then((value) async{
+            if(value.user!=null){
+              Navigator.pushNamedAndRemoveUntil(context, Verification.id, (Route<dynamic> route) => false);
+            }
+          });
+        }
+        catch(e){
+          setState(() {
+            Fluttertoast.showToast(
+                msg: "Enter Valid OTP",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.CENTER,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Color.fromRGBO(199, 168, 224, 1),
+                textColor: Colors.white,
+                fontSize: 16.0);
+          });
+        }
+      },
+      verificationFailed: (FirebaseAuthException e){
+      },
+      codeSent: (String verificationID,int? resendToken){
+        setState(() {
+          _verificationCode=verificationID;
+        });
+      },
+      timeout: const Duration(seconds: 30),
+      codeAutoRetrievalTimeout: (String verificationId) {  },
     );
   }
 }

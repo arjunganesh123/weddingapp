@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wedding_app/HomePage.dart';
 import 'package:wedding_app/Login_register.dart';
@@ -146,6 +148,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             SizedBox(height: MediaQuery.of(context).size.height*0.2,),
             ListTile(
               onTap: (){
+                FirebaseAuth.instance.signOut();
                 Navigator.pushNamed(context, LoginRegister.id);
               },
               horizontalTitleGap: 15,

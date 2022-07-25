@@ -97,7 +97,7 @@ class _Payment1State extends State<Payment1> {
                           padding: EdgeInsets.zero,
                         ),
                         onPressed: (){
-                          Navigator.pushNamed(context, PaymentScreen.id);
+                          Navigator.pushNamedAndRemoveUntil(context, PaymentScreen.id, (Route<dynamic> route) => false);
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width*0.6,

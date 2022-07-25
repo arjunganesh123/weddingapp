@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wedding_app/HomePage.dart';
 import 'package:wedding_app/Login_register.dart';
 
 class Splash extends StatefulWidget {
@@ -18,9 +20,15 @@ class _SplashState extends State<Splash> {
   }
 
   _navigatetoLoginRegister() async {
-    await Future.delayed(const Duration(milliseconds: 5000), () {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const LoginRegister()));
+    await Future.delayed(const Duration(milliseconds: 5000), (){
+      if(FirebaseAuth.instance.currentUser!= null){
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const HomePage()));
+      }
+      else{
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const LoginRegister()));
+      }
     });
   }
 
